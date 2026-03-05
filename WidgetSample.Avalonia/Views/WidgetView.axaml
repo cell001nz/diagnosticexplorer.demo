@@ -1,0 +1,40 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:WidgetSample.Avalonia.ViewModels"
+             xmlns:models="clr-namespace:WidgetSample.Avalonia.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="viewModels:MainWindowViewModel"
+             x:Name="Root"
+             x:Class="WidgetSample.Avalonia.Views.WidgetView">
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" Spacing="6">
+            <HyperlinkButton Command="{Binding AddWidgetCommand}" Classes="tiny">Add</HyperlinkButton>
+        </StackPanel>
+        <DataGrid
+            ItemsSource="{Binding WidgetsView}"
+            AutoGenerateColumns="False"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            IsReadOnly="False"
+            CanUserResizeColumns="True"
+            MinHeight="120"
+            Margin="0,0,0,4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="60" x:DataType="models:Widget"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" x:DataType="models:Widget"/>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <HyperlinkButton HorizontalAlignment="Center" VerticalAlignment="Center"
+                                             Command="{Binding #Root.((viewModels:MainWindowViewModel)DataContext).RemoveWidgetCommand}"
+                                             CommandParameter="{Binding}">x</HyperlinkButton>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

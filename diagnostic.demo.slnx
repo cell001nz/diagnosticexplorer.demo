@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/SolutionItems/">
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="WidgetSample.Avalonia/WidgetSample.Avalonia.csproj" />
+  <Project Path="WidgetSample/WidgetSample.csproj" />
+</Solution>

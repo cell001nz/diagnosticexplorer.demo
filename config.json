@@ -1,0 +1,12 @@
+{
+  "DiagnosticExplorer": {
+    "Sites": [
+      {
+        "Url": "https://diagnosticexplorer.com",
+        "Code": "your-code-here",
+        "Secret": "your-secret-here",
+        "Enabled": true
+      }
+    ]
+  }
+}

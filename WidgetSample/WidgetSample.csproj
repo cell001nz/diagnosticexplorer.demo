@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0-windows</TargetFrameworks>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>WidgetSample</AssemblyName>
+    <StartupObject>WidgetSample.Program</StartupObject>
+    <UseWindowsForms>true</UseWindowsForms>
+      <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+    <ItemGroup>
+    <PackageReference Include="DiagnosticExplorer" />
+    <PackageReference Include="DiagnosticExplorer.Hosting" />
+    <PackageReference Include="DiagnosticExplorer.Log4Net" />
+    <PackageReference Include="log4net" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+    <PackageReference Include="MongoDB.Driver" />
+    <PackageReference Include="protobuf-net" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\config.json">
+      <Link>config.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

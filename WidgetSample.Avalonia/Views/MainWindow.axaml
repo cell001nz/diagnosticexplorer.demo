@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:WidgetSample.Avalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:WidgetSample.Avalonia.Views"
+        mc:Ignorable="d" d:DesignWidth="1100" d:DesignHeight="750"
+        x:Class="WidgetSample.Avalonia.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Widget Sample – Diagnostic Explorer"
+        Width="1100" Height="750"
+        MinWidth="800" MinHeight="600">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel LastChildFill="True">
+
+
+        <!-- ── Status bar ── -->
+        <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" Padding="8,4">
+            <TextBlock Text="{Binding StatusText}" HorizontalAlignment="Right" Foreground="#aaaacc" FontSize="11" />
+        </Border>
+
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,Auto,Auto" DockPanel.Dock="Bottom">
+
+            <HeaderedContentControl Grid.Row="0" Header="Gadgets" Grid.Column="0" Classes="Classic">
+                <views:GadgetView />
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Grid.Row="0" Grid.Column="1" Header="Widgets" Classes="Classic">
+                <views:WidgetView />
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Grid.Row="2" Grid.Column="0" Header="Info" Classes="Classic">
+                <views:InfoView />
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Grid.Row="2" Grid.Column="1" Header="Diagnostics" Classes="Classic">
+                <views:ConnectView />
+            </HeaderedContentControl>
+        </Grid>
+
+
+    </DockPanel>
+</Window>
